@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript</title>
+        
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style2.css">
+    </head>
+    <body>
+      <form action="?" method="post">
+        <h1>Newsletter Anmeldung</h1>
+        <fieldset>          
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email" required>
+
+            <label for="text">Vorname:</label>
+            <input type="text" id="vorName" name="user_vorName" required>
+            <br>
+            <label for="text">Nachname:</label>
+            <input type="text" id="nachName" name="user_nachName" required>
+            <br>
+            <label>Anrede:</label>
+            <input type="radio" id="under_13" value="under_13" name="user_age" required><label for="under_13" class="light">Herr</label><br>
+            <input type="radio" id="over_13" value="over_13" name="user_age" required><label for="over_13" class="light">Frau</label>
+              <br><br>
+        <label for="job">Geburtsdatum:</label>
+                <select name="Tag" id="ta" required><option>Tag</option></select>
+                <select name="Monat" id="mo" required><option>Monat</option></select>
+                <select name="Jahr" id="ja" required><option>Jahr</option></select><br>
+          <input type="checkbox" id="development" value="interest_development" name="user_interest" checked required><label class="light" for="development">Datenschuty akzeptiert</label><br>
+        </fieldset>
+        <button type="submit" id="btn_submit">Anmelden</button>
+      </form>
+      <script>
+
+            var option = function(von,bis){
+                var html = '', i;
+                if (von < bis ) {
+                for ( i = von; i <= bis; i++) {
+                    html += '<option value="'+i+'">'+i+'</option>';
+                }
+                } else {
+                    for ( i = von; i >= bis; i--) {
+                        html += '<option value="'+i+'">'+i+'</option>';
+                    }       
+                    }
+                return html;
+            }
+
+            document.getElementById('ta').innerHTML += option(1,31);
+            document.getElementById('mo').innerHTML += option(1,12);
+            document.getElementById('ja').innerHTML += option(2001,1920);
+
+            document.getElementById( 'btn_submit' ).onclick = function( event ) {
+              event.preventDefault(); 
+                console.log('Button geklickt');
+            }
+
+
+              document.getElementById('btn_submit').onclick = function() {
+              document.getElementById("mail").required;
+              console.log('it is Impty!');
+              //document.getElementById('mail').style.borderColor = 'red';
+            }
+
+            var eingabeFeld = document.getElementById('mail');
+            var email = eingabeFeld.value;
+            var emailTeile = email.split('@');
+            if ( email.length < 7 || emailTeile.length != 2 || emailTeile[0].length < 1 || emailTeile[1].length < 5 ) {
+                eingabeFeld.className = 'error';
+            } else {
+                eingabeFeld.className = '';
+            }
+
+            /*             document.getElementById('btn_submit').onclick = function() {
+                
+                document.getElementById("mail") = i;
+                if (i == false) {
+                    console.log('it is Impty!');
+                } esleif {
+                    console.log('Füllen Sie die Vorname aus!!');
+                } else {
+                     console.log('Füllen Sie die Nachname aus!!');
+                }
+            }
+
+            document.getElementById('btn_submit').onclick = function() {
+              document.getElementById("vorName").required;
+              console.log('Füllen Sie die Vorname aus!!');
+            }  
+            document.getElementById('btn_submit').onclick = function() {
+              document.getElementById("nachName").required;
+              console.log('Füllen Sie die Nachname aus!!');
+            }    */
+            </script>
+    </body>
+</html>
