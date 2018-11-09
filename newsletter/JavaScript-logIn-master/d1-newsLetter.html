@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <title>News Letter</title>
+</head>
+<body>
+    <header>
+       <h1>Newsletter Anmeldung</h1>
+    </header> 
+    <div class="container">
+        <form action="?">
+          <div>
+           <label>
+              E-mail
+              <input type="email"><br>
+            </label>
+          </div>
+          <div class="radios">
+            <label>  Herr  <input type="radio" name="rb_anrede" id="f_anrede_h"> </label>
+            <label>  Frau  <input type="radio" name="rb_anrede" id="f_anrede_f"> </label>
+          </div>
+          <div>
+            <label for="">
+                 Vorname 
+               <input type="text"><br>
+            </label>
+          </div>
+          <div>
+            <label for="">
+             Nachname 
+             <input type="text"><br>
+            </label>
+          </div>
+          <div>
+            <label>
+             Geburtsdatum 
+            </label>
+              <select name="Jahr" id="ta">Tag<option>Tag</option></select>
+              <select name="Monat" id="mo">Monat<option>Monat</option></select>
+              <select name="Tag" id="ja">Jahr<option>Jahr</option></select><br>
+           </div>
+           <div>
+              <input type="checkbox">  Datenschutz
+            </div>
+            <button>Anmelden</button>
+        </form>  
+    </div>
+
+
+    <script>
+    var option = function(von,bis){
+        var html = '', i;
+        if (von < bis ) {
+        for ( i = von; i <= bis; i++) {
+            html += '<option value="'+i+'">'+i+'</option>';
+        }
+        } else {
+            for ( i = von; i >= bis; i--) {
+                html += '<option value="'+i+'">'+i+'</option>';
+            }       
+            }
+        return html;
+    }
+
+    document.getElementById('ta').innerHTML += option(1,31);
+    document.getElementById('mo').innerHTML += option(1,12);
+    document.getElementById('ja').innerHTML += option(2001,1920);
+
+    </script>
+</body>
+</html>
